@@ -39,10 +39,12 @@ SwiperCore.use([Keyboard, Scrollbar, Pagination, Navigation])
 
 const useStyles = makeStyles((theme) => ({
 	media: {
-		height: 0,
-		paddingTop: '100%', // 16:9
+		height: 300,
+		paddingTop: '70%', // 16:9
 	},
-
+	Card:{
+		marginBottom:30
+	},
 	swiperContainer: {
 		paddingBottom: '3rem',
 		'& .swiper-pagination-bullet': {
@@ -60,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
 const PostCard = () => {
 	const classes = useStyles()
 	return (
-		<Card>
+		<Card className={classes.Card}>
 			<CardHeader
 				avatar={<Avatar src={avatarImage} />}
 				action={
