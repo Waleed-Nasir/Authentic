@@ -11,6 +11,7 @@ const Gallery = React.lazy(() => import('./Dashboard/Gallery'));
 const KeepOnTrack = React.lazy(() => import('./Dashboard/KeepOnTrack'));
 const Infulancer = React.lazy(() => import('./Dashboard/Infulancer'));
 const Metrics = React.lazy(() => import('./Dashboard/Metrics'));
+const Campaign = React.lazy(() => import('./Dashboard/Campaign'));
 
 const UIBasicButton = React.lazy(() => import('./Demo/UIElements/Basic/Button'));
 const UIBasicBadges = React.lazy(() => import('./Demo/UIElements/Basic/Badges'));
@@ -53,6 +54,7 @@ const routes = [
     { path: '/KeepOnTrack', exact: true, name: 'KeepOnTrack', component: KeepOnTrack },
     { path: '/Infulancer', exact: true, name: 'Infulancer', component: Infulancer },
     { path: '/Metrics', exact: true, name: 'Metrics', component: Metrics },
+    { path: '/Campaigns', exact: true, name: 'Campaign', component: Campaign },
 
 
 ];
