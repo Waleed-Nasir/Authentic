@@ -12,6 +12,8 @@ const KeepOnTrack = React.lazy(() => import('./Dashboard/KeepOnTrack'));
 const Infulancer = React.lazy(() => import('./Dashboard/Infulancer'));
 const Metrics = React.lazy(() => import('./Dashboard/Metrics'));
 const Campaign = React.lazy(() => import('./Dashboard/Campaign'));
+const CampaignDetail = React.lazy(() => import('./Dashboard/CampaignDetail'));
+
 
 const UIBasicButton = React.lazy(() => import('./Demo/UIElements/Basic/Button'));
 const UIBasicBadges = React.lazy(() => import('./Demo/UIElements/Basic/Badges'));
@@ -55,6 +57,8 @@ const routes = [
     { path: '/Infulancer', exact: true, name: 'Infulancer', component: Infulancer },
     { path: '/Metrics', exact: true, name: 'Metrics', component: Metrics },
     { path: '/Campaigns', exact: true, name: 'Campaign', component: Campaign },
+    { path: '/CampaignDetail', exact: true, name: 'CampaignDetail', component: CampaignDetail },
+
 
 
 ];
