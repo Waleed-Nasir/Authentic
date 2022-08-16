@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 
@@ -11,35 +11,36 @@ const style = {
         margin: ' 0',
         border: ' 1px dashed #d8cdcd',
         padding: 25,
-        height:120,
-        cursor:'pointer'
+        height: 120,
+        cursor: 'pointer'
     }
 }
 
 
-export default function DropZoneUploader() {
-    const onDrop = useCallback(async (acceptedFiles) => {
-        const formData = new FormData();
+export default function DropZoneUploader({ getFile = () => { } }) {
+    const [Upload, setUpload] = useState(null)
+    const onDrop = useCallback(async (acceptedFiles, a, event) => {
+        var reader = new FileReader();
         const [file] = acceptedFiles;
-        formData.append("file", file);
-        await fetch("https://httpbin.org/post", {
-            method: "POST",
-            body: formData
-        });
+        getFile(file)
+        setUpload(file)
     }, []);
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-
+    const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({ onDrop });
     return (
         <div {...getRootProps()} style={style.dropContainer}>
-            <input {...getInputProps()} />
-            {isDragActive ? (
-                <p>Drop the files here ...</p>
-            ) : (
-                <div>
-                <p  className="p-0 m-0 ">Drag 'n' drop your image here</p>
-                <p className="p-0 m-0 f-w-900 ">Upload From Computer</p>
-                </div>
-            )}
+            <input {...getInputProps()} accept="image/*" />
+            {Upload ? <div onClick={() => setUpload(null)}>
+                <p className="p-0 m-0 f-w-900 ">{Upload.name} Image Uploaded <i className='feather icon-trash' /></p>
+            </div> : <>
+                {isDragActive ? (
+                    <p>Drop the files here ...</p>
+                ) : (
+                    <div>
+                        <p className="p-0 m-0 ">Drag 'n' drop your image here</p>
+                        <p className="p-0 m-0 f-w-900 ">Upload From Computer</p>
+                    </div>
+                )}
+            </>}
         </div>
     );
 }
