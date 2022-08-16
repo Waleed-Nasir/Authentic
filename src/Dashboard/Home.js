@@ -1,30 +1,79 @@
 import React from 'react';
-import {Row, Col, Card, Table, Tabs, Tab} from 'react-bootstrap';
+import { Row, Col, Card, Table, Tabs, Tab } from 'react-bootstrap';
 
 import Aux from "../hoc/_Aux";
 
 class Home extends React.Component {
     render() {
-        
+
         return (
             <Aux>
                 <Row>
-                    <Col md={6} xl={4}>
-                        <Card>
-                            <Card.Body>
-                                <h6 className='mb-4'>Daily Sales</h6>
+                    <Col md={4} xl={3}>
+                        <Card className='rounded'>
+                            <Card.Body className='p-3'>
+                                <i className=" bg-l-pink fa fa-bullhorn text-c-green f-20 p-3 mb-4 rounded" />
                                 <div className="row d-flex align-items-center">
                                     <div className="col-9">
-                                        <h3 className="f-w-300 d-flex align-items-center m-b-0"><i className="feather icon-arrow-up text-c-green f-30 m-r-5"/> $249.95</h3>
+                                        <h3 className="f-w-600 f-16 d-flex align-items-center m-b-0"> Campaigns</h3>
                                     </div>
 
-                                    <div className="col-3 text-right">
-                                        <p className="m-b-0">50%</p>
+                                    <div className=" text-right">
+                                        <p className="f-w-600 m-b-0 f-18  text-c-green ">300</p>
                                     </div>
                                 </div>
-                                <div className="progress m-t-30" style={{height: '7px'}}>
-                                    <div className="progress-bar progress-c-theme" role="progressbar" style={{width: '50%'}} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"/>
+
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4} xl={3}>
+                        <Card className='rounded'>
+                            <Card.Body className='p-3'>
+                                <i className=" bg-l-pink fa fa-random text-c-green f-20 p-3 mb-4 rounded" />
+                                <div className="row d-flex align-items-center">
+                                    <div className="col-9">
+                                        <h3 className="f-w-600 f-16 d-flex align-items-center m-b-0">Keep on Track</h3>
+                                    </div>
+
+                                    <div className=" text-right">
+                                        <p className="f-w-600 m-b-0 f-18  text-c-green ">300</p>
+                                    </div>
                                 </div>
+
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4} xl={3}>
+                        <Card className='rounded'>
+                            <Card.Body className='p-3'>
+                                <i className=" bg-l-pink fa fa-bullhorn text-c-green f-20 p-3 mb-4 rounded" />
+                                <div className="row d-flex align-items-center">
+                                    <div className="col-9">
+                                        <h3 className="f-w-600 f-16 d-flex align-items-center m-b-0"> Campaigns Result</h3>
+                                    </div>
+
+                                    <div className=" text-right">
+                                        <p className="f-w-600 m-b-0 f-18  text-c-green ">300</p>
+                                    </div>
+                                </div>
+
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4} xl={3}>
+                        <Card className='rounded'>
+                            <Card.Body className='p-3'>
+                                <i className=" bg-l-pink fa fa-list text-c-green f-20 p-3 mb-4 rounded" />
+                                <div className="row d-flex align-items-center">
+                                    <div className="col-9">
+                                        <h3 className="f-w-600 f-16 d-flex align-items-center m-b-0">Survey Creators</h3>
+                                    </div>
+
+                                    <div className=" text-right">
+                                        <p className="f-w-600 m-b-0 f-18  text-c-green ">300</p>
+                                    </div>
+                                </div>
+
                             </Card.Body>
                         </Card>
                     </Col>

@@ -40,6 +40,7 @@ $warning-color: #f4c22b;
 $danger-color: #f44236;
 $success-color: #ee2f82;
 $purple-color: #a389d4;
+$l-pink-color: #ee2f8260;
 $info-color: #3ebfea;
 $secondary-color: #748892;
 $default-color: #d6d6d6;
@@ -93,8 +94,8 @@ $theme-background: #f4f7fa;
 $theme-font-color: #888;
 $theme-heading-color: #111;
 
-$color-name: c-blue,c-red,c-green,c-yellow,c-purple;
-$color-color: $primary-color,$danger-color,$success-color ,$warning-color ,$purple-color;
+$color-name: c-blue,c-red,c-green,c-yellow,c-purple,l-pink;
+$color-color: $primary-color,$danger-color,$success-color ,$warning-color ,$purple-color,$l-pink-color;
 $color-bt-name: primary,danger,success,warning,info;
 $color-bt-color: $primary-color,$danger-color,$success-color ,$warning-color ,$info-color;
 

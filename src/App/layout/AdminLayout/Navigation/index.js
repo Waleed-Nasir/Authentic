@@ -30,7 +30,7 @@ class Navigation extends Component {
     }
 
     render() {
-        const LIST = false ? navigation.Influencer : navigation.Brand
+        const LIST = true ? navigation.Influencer : navigation.Brand
         let navClass = [
             'pcoded-navbar',
         ];

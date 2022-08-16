@@ -28,42 +28,42 @@ class Gallery extends React.Component {
                 <Row className='bg-white pt-4 pr-2 pl-2' >
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image1} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image1} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image2} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image2} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image3} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image3} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image4} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image4} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image5} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image5} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image6} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image6} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image7} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image7} alt="activity-user" />
                         </Card>
                     </Col>
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 240 }} class="img-fluid img-thumbnail" src={image8} alt="activity-user" />
+                            <img style={{ height: 290 }} class="img-fluid rounded" src={image8} alt="activity-user" />
                         </Card>
                     </Col>
 

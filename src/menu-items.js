@@ -34,7 +34,7 @@ export default {
                     id: 'Creator`s Survey',
                     title: 'Creator`s Survey',
                     type: 'item',
-                    url: '/Creator`s Survey',
+                    url: '/CreateSurvey',
                     icon: 'feather icon-home',
                 },
                 {
@@ -330,7 +330,7 @@ export default {
                     id: 'Creator`s Survey',
                     title: 'Creator`s Survey',
                     type: 'item',
-                    url: '/Gallery',
+                    url: '/CreateSurvey',
                     icon: 'feather icon-home',
                 },
                 {
