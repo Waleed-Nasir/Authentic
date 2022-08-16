@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Table, Tabs, Tab, Button } from 'react-bootstrap';
+import { Row, Col, Card, Table, Tabs, Tab, Button, Form } from 'react-bootstrap';
 
 import Aux from "../hoc/_Aux";
 import DEMO from "../store/constant";
@@ -12,9 +12,12 @@ import image5 from '../assets/images/user/5.jpeg';
 import image6 from '../assets/images/user/6.jpeg';
 import image7 from '../assets/images/user/7.jpeg';
 import image8 from '../assets/images/user/8.jpeg';
+import MODAL from './Modal';
+import DropZoneUploader from './DropZoneUploader';
 
-class Gallery extends React.Component {
-    render() {
+const Gallery = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
         return (
             <Aux>
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
@@ -22,7 +25,7 @@ class Gallery extends React.Component {
                     <div class="btn-group" >
                         <Button variant={'primary'}>Gallery</Button>
                         <Button className='bg-white text-dark' variant={'secondary'}>Sell my content</Button>
-                    <Button variant={'primary'} className='ml-3'>Add New Photo</Button>
+                        <Button variant={'primary'} onClick={handleOpen} className='ml-3'>Add New Photo</Button>
                     </div>
                 </Row>
                 <Row className='bg-white pt-4 pr-2 pl-2' >
@@ -68,9 +71,22 @@ class Gallery extends React.Component {
                     </Col>
 
                 </Row >
+                <MODAL isOpen={open} handleModal={setOpen}>
+                    <Row className='pt-0 mt-0 justify-content-center pb-3' >
+                        <h4>Add New Photo</h4>
+                    </Row>
+                    <DropZoneUploader />
+                    <Form className='pt-3'>
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Control type="number" placeholder="Price" />
+                        </Form.Group>
+                    </Form>
+                    <Button variant="primary" className='w-100 m-0'>
+                        Submit
+                    </Button>
+                </MODAL>
             </Aux>
         );
-    }
 }
 
 export default Gallery;
