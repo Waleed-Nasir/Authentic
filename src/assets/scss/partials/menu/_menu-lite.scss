@@ -721,7 +721,9 @@
                 display: block;
                 border-radius: 0;
                 position: relative;
-
+                margin: 2px 10px;
+                border-radius: 10px;
+                background: #ffadcd;
                 .pcoded-mtext {
                     position: relative;
                 }
@@ -1098,7 +1100,8 @@
             &:focus,
             &:hover {
 
-                    color: #1dc4e9;
+                    color: #ffffff;
+                    background: #ef2d83;
 
             }
 
