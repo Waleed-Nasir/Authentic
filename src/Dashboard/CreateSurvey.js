@@ -29,7 +29,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded'  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -42,7 +42,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -55,7 +55,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -69,7 +69,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
@@ -89,7 +89,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded'  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -102,7 +102,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -115,7 +115,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -129,7 +129,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
@@ -149,7 +149,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded'  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -162,7 +162,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -175,7 +175,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -189,7 +189,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
@@ -214,7 +214,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded' style={{backgroundColor:'#eeeeee'}}  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -228,7 +228,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -242,7 +242,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -257,7 +257,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
@@ -278,7 +278,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded' style={{backgroundColor:'#eeeeee'}}  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -292,7 +292,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -306,7 +306,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -321,7 +321,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
@@ -342,7 +342,7 @@ class CreateSurvey extends React.Component {
                         <Card className='p-4 rounded' style={{backgroundColor:'#eeeeee'}}  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Engaaged
                                     </div>
@@ -356,7 +356,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Baby on the way
                                     </div>
@@ -370,7 +370,7 @@ class CreateSurvey extends React.Component {
                                     />
                                 </div>
                                 <hr />
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Moving
                                     </div>
@@ -385,7 +385,7 @@ class CreateSurvey extends React.Component {
                                 </div>
                                 <hr />
 
-                                <div class="media lign-item-center justify-contennt-between pt-0 pb-0 mb-0">
+                                <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
                                         Other
                                     </div>
