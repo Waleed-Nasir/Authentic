@@ -27,7 +27,7 @@ export default {
                     id: 'Campaigns Result',
                     title: 'Campaigns Result',
                     type: 'item',
-                    url: '/Campaigns Result',
+                    url: '/CampignResult',
                     icon: 'feather icon-home',
                 },
                 {
