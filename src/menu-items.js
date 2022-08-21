@@ -48,7 +48,7 @@ export default {
                     id: 'Chats',
                     title: 'Chats',
                     type: 'item',
-                    url: '/Chats',
+                    url: '/Chat',
                     icon: 'feather icon-home',
                 },
             ],
