@@ -30,13 +30,15 @@ const style = {
 
 const types = {
     instagram: 'Instagram',
-    tiktok: 'Tiktok',
+    tiktok: 'tiktok',
 }
 const KeepOnTrack = () => {
     const [open, setOpen] = React.useState(false);
     const [state, setState] = useState([])
     const [O_type, setO_type] = useState('')
     let TOKEN = localStorage.getItem('token')
+    let userDetails = localStorage.getItem('userDetails')
+    userDetails = JSON.parse(userDetails)
     const handleOpen = (type) => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
@@ -46,11 +48,11 @@ const KeepOnTrack = () => {
             headers: myHeaders,
             redirect: 'follow'
         };
-        fetch(`http://authentic-web.authenticmatchinglimited.com/api/get_keep_on_track_info/d03ec2a3-1abe-40a1-b418-91aa9a7d71e1?type=${type}`, requestOptions)
+        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_tracks`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
-                setState(response.detail)
+                setState(response.detail.filter((item)=>item.type === type))
                 setOpen(true)
             })
         setO_type(type)
@@ -66,8 +68,8 @@ const KeepOnTrack = () => {
 
         var raw = JSON.stringify({
             "type": O_type,
-            "influencer_id": state[0].influencer_id,
-            "tracks": state.map((item) => ({ keep_on_track_id: item.keep_on_track.keep_on_track_id, value: item.keep_on_track.value }))
+            "influencer_id": userDetails.influencer_id,
+            "tracks": state.map((item) => ({ keep_on_track_id: item.keep_on_track_id, value: item.keep_on_track?.value }))
         });
 
         var requestOptions = {
@@ -77,7 +79,7 @@ const KeepOnTrack = () => {
             redirect: 'follow'
         };
 
-        fetch("http://authentic-web.authenticmatchinglimited.com/api/add_keep_on_track_info", requestOptions)
+        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/add_keep_on_track_info", requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
@@ -119,9 +121,9 @@ const KeepOnTrack = () => {
 
                 <Form className='pt-3' onSubmit={handlePost}>
                     {state.map((item, index) => <Form.Group controlId="formBasicPassword">
-                        <Form.Control required onChange={(e) => { state[index] = { ...state[index], keep_on_track: { ...state[index]['keep_on_track'], value: e.target.value } } }} type="text" value={item?.keep_on_track.value} placeholder={item?.keep_on_track.field} />
+                        <Form.Control required onChange={(e) => { state[index] = { ...state[index], keep_on_track: { ...state[index], value: e.target.value } } }} type="text" value={item?.value} placeholder={item?.field} />
                     </Form.Group>)}
-                    <DropZoneUploader />
+                    {/* <DropZoneUploader /> */}
                     <Button type='submit' variant="primary" className='w-100 mt-3'>
                         Submit
                     </Button>

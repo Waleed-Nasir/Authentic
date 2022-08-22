@@ -16,7 +16,7 @@ import {
 
 const SignIn = () => {
     const history = useHistory();
-    const [email, setEmail] = useState('influ@gmail.com')
+    const [email, setEmail] = useState('inf@gmail.com')
     const [password, setpassword] = useState('12345')
     const Sigin = () => {
         if (!email && !email.length) {
@@ -41,7 +41,7 @@ const SignIn = () => {
             headers: myHeaders,
             body: raw
         };
-        fetch("http://authentic-web.authenticmatchinglimited.com/api/login_influencer", requestOptions)
+        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/login_influencer", requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response, status ,error} = JSON.parse(result)
@@ -49,9 +49,9 @@ const SignIn = () => {
                 if (status) {
 
                     toast(response.message)
-                    localStorage.setItem('userDetails', JSON.stringify(response.detail.admin))
+                    localStorage.setItem('userDetails', JSON.stringify(response.detail.influencer))
                     localStorage.setItem('token', response.detail.token)
-                    localStorage.setItem('role', response.detail.type)
+                    // localStorage.setItem('role', 'response.detail.type')
                     history.push('/Home')
                 }
                 else {
@@ -73,8 +73,10 @@ return (
                         </div> */}
             <div >
                 <div className=" text-center">
+                    
                     <div className="mb-4">
-                        <i className="feather icon-unlock auth-icon" />
+                    <img style={{width:280,objectFit:'contain',marginBottom:30}} class="img-fluid" src={require('../../../assets/images/logo.png')}
+                        alt="Card image cap" />
                     </div>
                     <h3 className="mb-2">Welcome to admin</h3>
                     <p className="mb-4 pb-4 text-muted">Entery your details to continue</p>

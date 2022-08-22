@@ -19,56 +19,7 @@ class Campaign extends React.Component {
     render() {
         return (
             <Aux>
-                <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
-                    <h5>Compaign Title  <span className="text-muted bold  f-12">- (Waiting for Admin Approval)</span></h5>
-                </Row>
-
-                <Row className=' bg-white align-items-center' style={{ borderRadius: 12 }}>
-                    <img style={{ height: 80, width: 80, margin: '0px 0px 0px 14px', borderRadius: 12 }} src={image6} alt="activity-user" />
-                    <Card className='card-social m-0 shadow-none flex-grow-1'>
-                        <Card.Body className='p-1 m-0'>
-                            <div className="row align-items-center justify-content-center pt-3 m-0">
-                                <div className="col text-left">
-                                    <h5>Compaign Title</h5>
-                                </div>
-                            </div>
-                        </Card.Body>
-                        <Card.Body className='p-1 m-0'>
-                            <div className="row align-items-center d-flex justify-content-between   m-0">
-                                <div className="flex-1">
-                                    <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Type</span>
-                                        <h6>Paid</h6>
-                                    </div>
-                                </div>
-                                <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
-                                    <div className="col text-left" >
-                                        <span className="text-muted bold  f-12">No of Followers</span>
-                                        <h6>12,281</h6>
-                                    </div>
-                                </div>
-                                <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
-                                    <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Category</span>
-                                        <h6>Beauty</h6>
-                                    </div>
-                                </div>
-                                <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
-                                    <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Interested pepoles	</span>
-                                        <h6>12 Infulancer Interested</h6>
-                                    </div>
-                                </div>
-                                <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
-                                    <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Need a</span>
-                                        <h6>Instagram</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </Row>
+                
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
                     <h5>Compaigns </h5>
                     {/* <div class="btn-group" >

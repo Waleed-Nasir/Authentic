@@ -1,5 +1,5 @@
 import React from 'react';
-import DEMO  from './../../../../../store/constant';
+import DEMO from './../../../../../store/constant';
 import Aux from "../../../../../hoc/_Aux";
 
 const navLogo = (props) => {
@@ -11,12 +11,11 @@ const navLogo = (props) => {
     return (
         <Aux>
             <div className="navbar-brand header-logo">
-                 <a href={DEMO.BLANK_LINK} className="b-brand">
-                    <div className="b-bg">
-                        <i className="feather icon-trending-up" />
-                    </div>
-                    <span className="b-title">Authentic</span>
-                 </a>
+                <a href={DEMO.BLANK_LINK} className="b-brand">
+                    <img style={{width:'80%',objectFit:'contain'}} class="img-fluid" src={require('../../../../../assets/images/logo.png')}
+                        alt="Card image cap" />
+                    {/* <span className="b-title">Authentic</span> */}
+                </a>
                 <a href={DEMO.BLANK_LINK} className={toggleClass.join(' ')} id="mobile-collapse" onClick={props.onToggleNavigation}><span /></a>
             </div>
         </Aux>

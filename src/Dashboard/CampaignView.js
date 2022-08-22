@@ -23,7 +23,7 @@ class CampaignDetail extends React.Component {
                 </Row>
 
                 <Row className=' bg-white align-items-center' style={{ borderRadius: 12 }}>
-                    <img style={{ height: 80, width: 80, margin: '0px 0px 0px 14px', borderRadius: 12 }} src={image6} alt="activity-user" />
+                    <img style={{ height: 80, width: 80, objectFit: 'contain',background:'black',margin: '0px 0px 0px 14px', borderRadius: 12 }} src={image6} alt="activity-user" />
                     <Card className='card-social m-0 shadow-none flex-grow-1'>
                         <Card.Body className='p-1 m-0'>
                             <div className="row align-items-center  justify-content-between  pt-3 m-0">

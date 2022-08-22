@@ -18,7 +18,7 @@ class NavRight extends Component {
 
         return (
             <Aux>
-                {/* <ul className="navbar-nav ml-auto">
+                <ul className="navbar-nav ml-auto">
                     <li>
                         <Dropdown alignRight={!this.props.rtlLayout}>
                             <Dropdown.Toggle variant={'link'} id="dropdown-basic">
@@ -101,7 +101,7 @@ class NavRight extends Component {
                             </Dropdown.Menu>
                         </Dropdown>
                     </li>
-                </ul> */}
+                </ul>
                 <ChatList listOpen={this.state.listOpen} closed={() => {this.setState({listOpen: false});}} />
             </Aux>
         );
