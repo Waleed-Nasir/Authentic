@@ -6,10 +6,10 @@ const Forgot = React.lazy(() => import('./Demo/Authentication/Forgot/Forgot'));
 const VerifyOTP = React.lazy(() => import('./Demo/Authentication/VerifyOTP/VerifyOTP'));
 
 const route = [
-    { path: '/auth/signup', exact: true, name: 'Signup 1', component: SignUp1 },
-    { path: '/auth/forgot', exact: true, name: 'Forgot Password', component: Forgot },
-    { path: '/auth/signin', exact: true, name: 'Signin 1', component: Signin },
-    { path: '/auth/verifyOTP', exact: true, name: 'Verify OTP', component: VerifyOTP },
+    { path: '/signup', exact: true, name: 'Signup 1', component: SignUp1 },
+    { path: '/forgot', exact: true, name: 'Forgot Password', component: Forgot },
+    { path: '/signin', exact: true, name: 'Signin 1', component: Signin },
+    { path: '/verifyOTP', exact: true, name: 'Verify OTP', component: VerifyOTP },
 ];
 
 export default route;

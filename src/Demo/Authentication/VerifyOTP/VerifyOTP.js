@@ -24,7 +24,7 @@ class VerifyOTP extends React.Component {
                                     <input type="number"  className="form-control text-center" placeholder="0" />
                                 </div>
                                 <button className="btn btn-primary shadow-2 mb-4 w-100">Confirm</button>
-                                <p className="mb-2 text-muted"><NavLink to="/auth/signin">Back to Login</NavLink></p>
+                                <p className="mb-2 text-muted"><NavLink to="/signin">Back to Login</NavLink></p>
                             </div>
                         </div>
                     </div>

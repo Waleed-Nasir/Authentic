@@ -15,7 +15,7 @@ import * as actionTypes from "../../../store/actions";
 import './app.scss';
 import { checkAuth } from '../../../utils';
 const ProtectedRoute = ({ isEnabled, ...props }) => {
-    return (isEnabled) ? <Route {...props} /> : <Redirect to="/auth/signin" />;
+    return (isEnabled) ? <Route {...props} /> : <Redirect to="/signin" />;
 };
 const AdminLayout = (props) => {
     useEffect(() => {

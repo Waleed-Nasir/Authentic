@@ -186,7 +186,7 @@ export default {
         //                     id: 'signup-1',
         //                     title: 'Sign up',
         //                     type: 'item',
-        //                     url: '/auth/signup-1',
+        //                     url: '/signup-1',
         //                     target: true,
         //                     breadcrumbs: false
         //                 },
@@ -194,7 +194,7 @@ export default {
         //                     id: 'signin-1',
         //                     title: 'Sign in',
         //                     type: 'item',
-        //                     url: '/auth/signin-1',
+        //                     url: '/signin-1',
         //                     target: true,
         //                     breadcrumbs: false
         //                 }

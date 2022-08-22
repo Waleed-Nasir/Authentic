@@ -22,7 +22,7 @@ class Forgot extends React.Component {
                                 <input type="email" className="form-control" placeholder="Email" />
                             </div>
                             <button className="btn btn-primary shadow-2 mb-4 w-100">Send</button>
-                            <p className="mb-2 text-muted"><NavLink to="/auth/signin">Back to Login</NavLink></p>
+                            <p className="mb-2 text-muted"><NavLink to="/signin">Back to Login</NavLink></p>
                         </div>
                     </div>
                 </div>
