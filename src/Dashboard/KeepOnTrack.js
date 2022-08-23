@@ -60,12 +60,14 @@ const KeepOnTrack = () => {
         fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_tracks`, requestOptions)
             .then(response => response.text())
             .then(result => {
-                setAllow(true)
+                setO_type(type)
                 const { response } = JSON.parse(result)
-                setState(response.detail.filter((item) => item.type === type))
+                let NewSte = response.detail.filter((item) => item.type === type)
+                setState(NewSte)
                 setOpen(true)
+                setAllow(true)
+                handleDataVAL(type, NewSte)
             })
-        setO_type(type)
             .catch(error => console.log('error', error));
     }
 
@@ -94,6 +96,7 @@ const KeepOnTrack = () => {
                 const { response } = JSON.parse(result)
                 toast(response.message)
                 setOpen(false)
+                getRC()
             })
             .catch(error => console.log('error', error));
     }
@@ -122,22 +125,22 @@ const KeepOnTrack = () => {
                 let Instagram = response.detail.filter((item) => item?.keep_on_track_info?.type === 'instagram')
                 let Tiktok = response.detail.filter((item) => item?.keep_on_track_info?.type === 'tiktok')
                 setCardState({ Instagram, Tiktok })
+                handleDataVAL(O_type, state)
             })
             .catch(error => console.log('error', error));
     }
 
 
-    useEffect(() => {
-        if (O_type && isAllow &&state.length) {
-            setAllow(false)
-            var data = {}
-            let New = cardState[types[O_type]].map((item) => {
-                data[item.keep_on_track_id] = item.keep_on_track_info.value
-            })
-            let NewState = state.map((item) => ({ ...item, value: data[item.keep_on_track_id] }))
-            setState(NewState)
-        }
-    }, [cardState, O_type, state, isAllow])
+    const handleDataVAL = (O_type, state) => {
+        setAllow(false)
+        var data = {}
+        let New = cardState[types[O_type]].map((item) => {
+            data[item.keep_on_track_id] = item.keep_on_track_info.value
+        })
+        let NewState = state.map((item) => ({ ...item, value: data[item.keep_on_track_id || ''] }))
+        console.log(NewState)
+        setState(NewState)
+    }
 
 
 
@@ -168,7 +171,9 @@ const KeepOnTrack = () => {
 
                 <Form className='pt-3' onSubmit={handlePost}>
                     {state.map((item, index) => <Form.Group controlId="formBasicPassword">
-                        <Form.Control required onChange={(e) => { state[index] = { ...state[index], keep_on_track: { ...state[index], value: e.target.value } } }} type="text" value={item?.value} placeholder={item?.field} />
+                        <Form.Control required onChange={(e) => {
+                            state[index] = { ...state[index], keep_on_track: { ...state[index], value: e.target.value } }
+                        }} type="text" value={item?.keep_on_track?.value} placeholder={item?.field} />
                     </Form.Group>)}
                     {/* <DropZoneUploader /> */}
                     <Button type='submit' variant="primary" className='w-100 mt-3'>
