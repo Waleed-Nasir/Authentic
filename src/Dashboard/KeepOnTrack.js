@@ -80,7 +80,7 @@ const KeepOnTrack = () => {
         var raw = JSON.stringify({
             "type": O_type,
             "influencer_id": userDetails.influencer_id,
-            "tracks": state.map((item) => ({ keep_on_track_id: item.keep_on_track_id, value: item.keep_on_track?.value }))
+            "tracks": state.map((item) => ({ keep_on_track_id: item.keep_on_track_id, value: item.value }))
         });
 
         var requestOptions = {
@@ -142,6 +142,11 @@ const KeepOnTrack = () => {
         setState(NewState)
     }
 
+    const handleChangeDta = (e, index, keep_on_track_id) => {
+        let newState = state.map((item) => (item.keep_on_track_id === keep_on_track_id ? { ...item, value: e.target.value } : item))
+        console.log(newState, 'state')
+        setState(newState)
+    }
 
 
     return (
@@ -171,9 +176,7 @@ const KeepOnTrack = () => {
 
                 <Form className='pt-3' onSubmit={handlePost}>
                     {state.map((item, index) => <Form.Group controlId="formBasicPassword">
-                        <Form.Control required onChange={(e) => {
-                            state[index] = { ...state[index], keep_on_track: { ...state[index], value: e.target.value } }
-                        }} type="text" value={item?.keep_on_track?.value} placeholder={item?.field} />
+                        <Form.Control required onChange={(e) => { handleChangeDta(e, index, item.keep_on_track_id) }} type="text" value={item?.value} placeholder={item?.field} />
                     </Form.Group>)}
                     {/* <DropZoneUploader /> */}
                     <Button type='submit' variant="primary" className='w-100 mt-3'>
