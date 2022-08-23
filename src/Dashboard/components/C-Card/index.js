@@ -6,7 +6,7 @@ const C_Card = () => {
     return (
         <div class="card mb-10 overlay-hidden " style={{borderRadius:20,marginBottom:50}}>
             <div class="bg-image hover-overlay rippleoverflow-hidden " data-mdb-ripple-color="light">
-                <img style={{borderRadius:'20px 20px 0px 0px'}} class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg"
+                <img style={{borderRadius:'20px 20px 0px 0px'}} class="img-fluid" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg"
                     alt="Card image cap" />
                 <h6 style={{ position: 'absolute', zIndex: 100, color: 'white', bottom: 63, width: '100%', background: '#00000060', height: 40, padding: 9 }}>Paid</h6>
             </div>

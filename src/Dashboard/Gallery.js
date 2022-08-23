@@ -56,49 +56,49 @@ const Gallery = () => {
                 <h5>Gallery</h5>
                 <div class="btn-group" >
                     <Button variant={'primary'}>Gallery</Button>
-                    <Button className='bg-white text-dark' variant={'secondary'}>Sell my content</Button>
+                    {/* <Button className='bg-white text-dark' variant={'secondary'}>Sell my content</Button> */}
                     <Button variant={'primary'} onClick={handleOpen} className='ml-3'>Add New Photo</Button>
                 </div>
             </Row>
             <Row className='bg-white pt-4 pr-2 pl-2' >
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image1} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image2} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image3} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image4} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image5} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image6} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image7} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
                 <Col md={4} xl={4} >
                     <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src={image8} alt="activity-user" />
+                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                     </Card>
                 </Col>
 

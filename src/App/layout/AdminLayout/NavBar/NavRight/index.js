@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Dropdown} from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 
 import ChatList from './ChatList';
 import Aux from "../../../../../hoc/_Aux";
@@ -15,14 +15,15 @@ class NavRight extends Component {
     };
 
     render() {
-
+        let userDetails = localStorage.getItem('userDetails')
+        userDetails = JSON.parse(userDetails)
         return (
             <Aux>
                 <ul className="navbar-nav ml-auto">
                     <li>
                         <Dropdown alignRight={!this.props.rtlLayout}>
                             <Dropdown.Toggle variant={'link'} id="dropdown-basic">
-                                <i className="icon feather icon-bell"/>
+                                <i className="icon feather icon-bell" />
                             </Dropdown.Toggle>
                             <Dropdown.Menu alignRight className="notification">
                                 <div className="noti-head">
@@ -32,7 +33,7 @@ class NavRight extends Component {
                                         <a href={DEMO.BLANK_LINK}>clear all</a>
                                     </div>
                                 </div>
-                                <ul className="noti-body">
+                                {/* <ul className="noti-body">
                                     <li className="n-title">
                                         <p className="m-b-0">NEW</p>
                                     </li>
@@ -69,40 +70,41 @@ class NavRight extends Component {
                                             </div>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> */}
                                 <div className="noti-footer">
-                                    <a href={DEMO.BLANK_LINK}>show all</a>
+                                    {/* <a href={DEMO.BLANK_LINK}>show all</a> */}
+                                    <h6>Notifications are coming soon</h6>
                                 </div>
                             </Dropdown.Menu>
                         </Dropdown>
                     </li>
-                    <li className={this.props.rtlLayout ? 'm-r-15' : 'm-l-15'}>
-                        <a href={DEMO.BLANK_LINK} className="displayChatbox" onClick={() => {this.setState({listOpen: true});}}><i className="icon feather icon-mail"/></a>
-                    </li>
+                    {/* <li className={this.props.rtlLayout ? 'm-r-15' : 'm-l-15'}>
+                        <a href={DEMO.BLANK_LINK} className="displayChatbox" onClick={() => { this.setState({ listOpen: true }); }}><i className="icon feather icon-mail" /></a>
+                    </li> */}
                     <li>
                         <Dropdown alignRight={!this.props.rtlLayout} className="drp-user">
                             <Dropdown.Toggle variant={'link'} id="dropdown-basic">
-                                <i className="icon feather icon-settings"/>
+                                <i className="icon feather icon-settings" />
                             </Dropdown.Toggle>
                             <Dropdown.Menu alignRight className="profile-notification">
                                 <div className="pro-head">
-                                    <img src={Avatar1} className="img-radius" alt="User Profile"/>
-                                    <span>John Doe</span>
-                                    <a href={DEMO.BLANK_LINK} className="dud-logout" title="Logout">
-                                        <i className="feather icon-log-out"/>
+                                    <img src={Avatar1} className="img-radius" alt="User Profile" />
+                                    <span>{userDetails.influencer_name}</span>
+                                    <a href={'/signin'} className="dud-logout" title="Logout">
+                                        <i className="feather icon-log-out" />
                                     </a>
                                 </div>
                                 <ul className="pro-body">
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-settings"/> Settings</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-user"/> Profile</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-mail"/> My Messages</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-lock"/> Lock Screen</a></li>
+                                    <li><a href={'/signin'} className="dropdown-item"><i className="feather icon-settings" /> Logout</a></li>
+                                    {/* <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-user" /> Profile</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-mail" /> My Messages</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-lock" /> Lock Screen</a></li> */}
                                 </ul>
                             </Dropdown.Menu>
                         </Dropdown>
                     </li>
                 </ul>
-                <ChatList listOpen={this.state.listOpen} closed={() => {this.setState({listOpen: false});}} />
+                <ChatList listOpen={this.state.listOpen} closed={() => { this.setState({ listOpen: false }); }} />
             </Aux>
         );
     }

@@ -10,7 +10,7 @@ const ActiveCard = ({isNew=false}) => {
     return (
         <div class="card mb-10 overlay-hidden " style={{ borderRadius: 20, marginBottom: 50, overflow: 'hidden',cursor:'pointer' }} onClick={()=>  history.push('/CampaignView')} >
             <div class="bg-image hover-overlay rippleoverflow-hidden  " data-mdb-ripple-color="light">
-                <img style={{ borderRadius: '20px 20px 20px 20px' }} class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg"
+                <img style={{ borderRadius: '20px 20px 20px 20px' }} class="img-fluid" src={isNew?"https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg":'https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg'}
                     alt="Card image cap" />
                 {isNew ? <div style={{ position: 'absolute', zIndex: 100, color: 'white', top: 10, left: 10, background: '#f4891e', padding: '2px 5px', borderRadius: 4, fontSize: 10 }}>
                     Request

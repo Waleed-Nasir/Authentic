@@ -24,8 +24,8 @@ export default {
                     icon: 'feather icon-home',
                 },
                 {
-                    id: 'Campaigns Result',
-                    title: 'Campaigns Result',
+                    id: 'Campaign Results',
+                    title: 'Campaign Results',
                     type: 'item',
                     url: '/CampignResult',
                     icon: 'feather icon-home',
@@ -44,13 +44,13 @@ export default {
                     url: '/Gallery',
                     icon: 'feather icon-home',
                 },
-                {
-                    id: 'Chats',
-                    title: 'Chats',
-                    type: 'item',
-                    url: '/Chat',
-                    icon: 'feather icon-home',
-                },
+                // {
+                //     id: 'Chats',
+                //     title: 'Chats',
+                //     type: 'item',
+                //     url: '/Chat',
+                //     icon: 'feather icon-home',
+                // },
             ],
 
 

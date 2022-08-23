@@ -16,6 +16,7 @@ import { Box, Modal } from '@material-ui/core';
 import MODAL from './Modal';
 import DropZoneUploader from './DropZoneUploader';
 import { toast } from 'react-toastify';
+import KeepCard from './components/KeepCard';
 
 const style = {
     position: 'absolute',
@@ -30,15 +31,23 @@ const style = {
 
 const types = {
     instagram: 'Instagram',
-    tiktok: 'tiktok',
+    tiktok: 'Tiktok',
 }
 const KeepOnTrack = () => {
     const [open, setOpen] = React.useState(false);
+    const [isAllow, setAllow] = React.useState(false);
     const [state, setState] = useState([])
+    const [cardState, setCardState] = useState({})
     const [O_type, setO_type] = useState('')
+
     let TOKEN = localStorage.getItem('token')
     let userDetails = localStorage.getItem('userDetails')
     userDetails = JSON.parse(userDetails)
+
+    useEffect(() => {
+        getRC()
+    }, [])
+
     const handleOpen = (type) => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
@@ -51,8 +60,9 @@ const KeepOnTrack = () => {
         fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_tracks`, requestOptions)
             .then(response => response.text())
             .then(result => {
+                setAllow(true)
                 const { response } = JSON.parse(result)
-                setState(response.detail.filter((item)=>item.type === type))
+                setState(response.detail.filter((item) => item.type === type))
                 setOpen(true)
             })
         setO_type(type)
@@ -65,7 +75,6 @@ const KeepOnTrack = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
         myHeaders.append("Content-Type", "application/json");
-
         var raw = JSON.stringify({
             "type": O_type,
             "influencer_id": userDetails.influencer_id,
@@ -91,6 +100,44 @@ const KeepOnTrack = () => {
 
 
 
+    const getRC = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+
+        var raw = "";
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            // body: raw,
+            redirect: 'follow'
+        };
+
+        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_track_info/${userDetails.influencer_id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                toast(response.message)
+                console.log(response.detail, 'response.detail')
+                let Instagram = response.detail.filter((item) => item?.keep_on_track_info?.type === 'instagram')
+                let Tiktok = response.detail.filter((item) => item?.keep_on_track_info?.type === 'tiktok')
+                setCardState({ Instagram, Tiktok })
+            })
+            .catch(error => console.log('error', error));
+    }
+
+
+    useEffect(() => {
+        if (O_type && isAllow &&state.length) {
+            setAllow(false)
+            var data = {}
+            let New = cardState[types[O_type]].map((item) => {
+                data[item.keep_on_track_id] = item.keep_on_track_info.value
+            })
+            let NewState = state.map((item) => ({ ...item, value: data[item.keep_on_track_id] }))
+            setState(NewState)
+        }
+    }, [cardState, O_type, state, isAllow])
 
 
 
@@ -101,18 +148,18 @@ const KeepOnTrack = () => {
 
             </Row>
             <Row className='align-self-center'>
-                <Col md={6} xl={6} >
+                {cardState?.Instagram ? <KeepCard data={cardState?.Instagram} type={'Instagram'} onClick={() => handleOpen('instagram')} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
-                        <div> <Button variant='primary' onClick={() => handleOpen('instagram')}  >Enter your Instagram Details</Button></div>
+                        <div> <Button variant='primary' onClick={() => handleOpen('instagram')}  >Enter your Instagram Insights</Button></div>
                     </Card>
-                </Col>
-                <Col md={6} xl={6} >
+                </Col>}
+                {cardState?.Tiktok ? <KeepCard data={cardState?.Tiktok} type={'Tiktok'} onClick={() => handleOpen('tiktok')} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
-                        <div> <Button variant='primary' onClick={() => handleOpen('tiktok')}  >Enter your Tiktok Details</Button></div>
+                        <div> <Button variant='primary' onClick={() => handleOpen('tiktok')}  >Enter your Tiktok Insights</Button></div>
                     </Card>
-                </Col>
-            </Row >
+                </Col>}
 
+            </Row >
 
             <MODAL isOpen={open} handleModal={setOpen}>
                 <Row className='pt-0 mt-0 justify-content-center pb-3' >

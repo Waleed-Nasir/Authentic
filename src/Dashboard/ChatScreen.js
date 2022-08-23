@@ -11,7 +11,10 @@ class ChatScreen extends React.Component {
             <Aux>
                 <Row>
                     <Col md={12} xl={12}>
-                        <Chat/>
+                        {/* <Chat/> */}
+                        <Card  >
+                            <img style={{ objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
+                        </Card>
                     </Col>
                 </Row>
             </Aux>

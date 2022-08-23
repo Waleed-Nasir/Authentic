@@ -85,7 +85,7 @@ class CreateSurvey extends React.Component {
                             </Form.Group>
                         </Card>
                     </Col>
-                    <Col md={4} xl={4} >
+                    {/* <Col md={4} xl={4} >
                         <Card className='p-4 rounded'  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
@@ -204,7 +204,7 @@ class CreateSurvey extends React.Component {
 
                             </Form.Group>
                         </Card>
-                    </Col>
+                    </Col> */}
                 </Row >
                 <Row className=' p-4 mt-5  d-flex justify-content-between bg-white' >
                     <h5>Submitted Survey</h5>
@@ -274,7 +274,7 @@ class CreateSurvey extends React.Component {
                             </Form.Group>
                         </Card>
                     </Col>
-                    <Col md={4} xl={4} >
+                    {/* <Col md={4} xl={4} >
                         <Card className='p-4 rounded' style={{backgroundColor:'#eeeeee'}}  >
                             <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
                             <Form.Group>
@@ -401,7 +401,7 @@ class CreateSurvey extends React.Component {
 
                             </Form.Group>
                         </Card>
-                    </Col>
+                    </Col> */}
                 </Row >
             </Aux>
         );
