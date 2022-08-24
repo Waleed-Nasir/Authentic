@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Card, Table, Tabs, Tab, Button, Form } from 'react-bootstrap';
 
 import Aux from "../hoc/_Aux";
@@ -19,18 +19,33 @@ import { toast } from 'react-toastify';
 const Gallery = () => {
     const [open, setOpen] = React.useState(false);
     const [File, getFile] = React.useState(null);
-    const [price, setPrice] = React.useState(0);
+    const [imageList, setImageList] = React.useState([]);
+    const [MediaType, setMediaType] = React.useState('image');
+    const [Sources, setSources] = React.useState(null);
     const handleOpen = () => setOpen(true);
     let TOKEN = localStorage.getItem('token')
-
+    let userDetails = localStorage.getItem('userDetails')
+    userDetails = JSON.parse(userDetails)
     const fileUpload = (e) => {
         e.preventDefault()
+
+        if (MediaType === 'video') {
+            getPostImages(Sources)
+            return false
+        }
+
+
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
 
+        if(!File){
+            toast.error('Please add image first')
+            return false
+        }
+
         var formdata = new FormData();
-        formdata.append("image", File, File.name);
-        // formdata.append("price", price);
+        formdata.append("file", File, File.name);
+        // formdata.append("type", "image");
 
         var requestOptions = {
             method: 'POST',
@@ -43,12 +58,67 @@ const Gallery = () => {
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
+                // toast('Image Uplaoded')
+                getPostImages(response.detail)
+            })
+            .catch(error => console.log('error', error));
+
+
+    }
+
+
+    const getPostImages = (path) => {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "type": MediaType, // image or video
+            "path": path,
+            "influencer_id": userDetails.influencer_id
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/add_gallery_info", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
                 toast('Image Uplaoded')
                 setOpen(false)
+                getImages()
             })
             .catch(error => console.log('error', error));
     }
 
+
+    useEffect(() => { getImages() }, [])
+
+    const getImages = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_gallery_info/${userDetails.influencer_id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                setImageList(response.detail)
+            })
+            .catch(error => console.log('error', error));
+    }
 
     return (
         <Aux>
@@ -61,46 +131,20 @@ const Gallery = () => {
                 </div>
             </Row>
             <Row className='bg-white pt-4 pr-2 pl-2' >
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
-                <Col md={4} xl={4} >
-                    <Card  >
-                        <img style={{ height: 290 ,objectFit: 'contain',background:'black'}} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                    </Card>
-                </Col>
+                {imageList?.map((item) => {
+                    return (item?.type === 'image' ? <Col md={4} xl={4} >
+                        <Card  >
+                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
+                        </Card>
+                    </Col> : <Col md={4} xl={4} >
+                        <Card  >
+                            {/* <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" /> */}
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'contain', background: 'black' }}></iframe>
+                            </div>
+                        </Card>
+                    </Col>)
+                })}
 
             </Row >
             <MODAL isOpen={open} handleModal={setOpen}>
@@ -108,10 +152,60 @@ const Gallery = () => {
                     <h4>Add New Photo</h4>
                 </Row>
                 <Form className='pt-3' onSubmit={fileUpload}>
-                    <DropZoneUploader getFile={getFile} />
+
                     {/* <Form.Group controlId="formBasicPassword" className='pt-3'>
                         <Form.Control onChange={(e) => setPrice(e.target.value)} value={price} required type="number" placeholder="Price" />
                     </Form.Group> */}
+                    <span>Media Type</span>
+                    <Form.Group onChange={(e) => setMediaType(e.target.value)} className={'d-flex justify-content-between'}>
+                        <Form.Check
+                            custom
+                            style={{ flex: 1 }}
+                            type="radio"
+                            label="Uplaod Image"
+                            name="supportedRadios"
+                            id="For_1"
+                            value={'image'}
+                            checked={MediaType === 'image'}
+                        />
+                        <Form.Check
+                            custom
+                            style={{ flex: 1 }}
+                            type="radio"
+                            label="Add Video Link"
+                            name="supportedRadios"
+                            id="For_2"
+                            value={'video'}
+                            checked={MediaType === 'video'}
+                        />
+                    </Form.Group>
+                    {/* <span>Sources</span>
+                    <Form.Group onChange={(e) => setSources(e.target.value)} className={'d-flex justify-content-between'}>
+                        <Form.Check
+                            custom
+                            type="radio"
+                            label="Instagram"
+                            checked={Sources === 'instagram'}
+                            name="type_Media"
+                            id="type_Media_1"
+                            value={'instagram'}
+                            style={{ flex: 1 }}
+                        />
+                        <Form.Check
+                            custom
+                            type="radio"
+                            label="Tiktok"
+                            name="type_Media"
+                            id="type_Media_2"
+                            value={'tiktok'}
+                            checked={Sources === 'tiktok'}
+                            style={{ flex: 1 }}
+                        />
+                    </Form.Group> */}
+
+                    {MediaType === 'image' ? <DropZoneUploader getFile={getFile} /> : <Form.Group controlId="formBasicPassword">
+                        <Form.Control required onChange={(e) => { setSources(e.target.value) }} type="text" placeholder={'Enter Video url here'} />
+                    </Form.Group>}
                     <Button type={'submit'} variant="primary" className='w-100 m-0 mt-4'>
                         Submit
                     </Button>

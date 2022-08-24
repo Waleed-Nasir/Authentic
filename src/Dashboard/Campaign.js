@@ -21,7 +21,7 @@ class Campaign extends React.Component {
             <Aux>
                 
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
-                    <h5>Compaigns </h5>
+                    <h5>Campaigns </h5>
                     {/* <div class="btn-group" >
                         <Button variant={'primary'}>Gallery</Button>
                         <Button className='bg-white text-dark' variant={'secondary'}>Sell my content</Button>
@@ -40,7 +40,7 @@ class Campaign extends React.Component {
 
                 </Row >
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
-                    <h5>Compaigns </h5>
+                    <h5>Campaigns </h5>
                     {/* <div class="btn-group" >
                         <Button variant={'primary'}>Gallery</Button>
                         <Button className='bg-white text-dark' variant={'secondary'}>Sell my content</Button>

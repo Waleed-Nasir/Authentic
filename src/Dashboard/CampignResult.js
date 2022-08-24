@@ -10,7 +10,7 @@ class CampignResult extends React.Component {
         return (
             <Aux>
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
-                    <h5>Compaigns Result </h5>
+                    <h5>Campaigns Result </h5>
                     <div class="d-flex" >
                         <DropdownButton
                             title={'Campigns 01'}

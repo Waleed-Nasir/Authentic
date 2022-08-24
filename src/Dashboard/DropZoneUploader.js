@@ -25,10 +25,14 @@ export default function DropZoneUploader({ getFile = () => { } }) {
         getFile(file)
         setUpload(file)
     }, []);
-    const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({ onDrop });
+    const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
+        onDrop, maxFiles: 1, accept: {
+            'image/*': ['.jpeg', '.png'],
+        }
+    });
     return (
         <div {...getRootProps()} style={style.dropContainer}>
-            <input {...getInputProps()} accept="image/*" />
+            <input  {...getInputProps()} accept="image/*" />
             {Upload ? <div onClick={() => setUpload(null)}>
                 <p className="p-0 m-0 f-w-900 ">{Upload.name} Image Uploaded <i className='feather icon-trash' /></p>
             </div> : <>
