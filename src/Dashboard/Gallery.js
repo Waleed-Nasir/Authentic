@@ -28,6 +28,7 @@ const Gallery = () => {
     userDetails = JSON.parse(userDetails)
     const fileUpload = (e) => {
         e.preventDefault()
+        setOpen(false);
 
         if (MediaType === 'video') {
             getPostImages(Sources)
@@ -38,7 +39,7 @@ const Gallery = () => {
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
 
-        if(!File){
+        if (!File) {
             toast.error('Please add image first')
             return false
         }
@@ -90,7 +91,7 @@ const Gallery = () => {
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
-                toast('Image Uplaoded')
+                toast('Image Uploaded')
                 setOpen(false)
                 getImages()
             })
@@ -134,13 +135,13 @@ const Gallery = () => {
                 {imageList?.map((item) => {
                     return (item?.type === 'image' ? <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
+                            <img style={{ height: 290, objectFit: 'cover', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
                         </Card>
                     </Col> : <Col md={4} xl={4} >
                         <Card  >
                             {/* <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" /> */}
                             <div class="embed-responsive embed-responsive-1by1">
-                                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'contain', background: 'black' }}></iframe>
+                                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'cover', background: 'black' }}></iframe>
                             </div>
                         </Card>
                     </Col>)
@@ -162,7 +163,7 @@ const Gallery = () => {
                             custom
                             style={{ flex: 1 }}
                             type="radio"
-                            label="Uplaod Image"
+                            label="Upload Image"
                             name="supportedRadios"
                             id="For_1"
                             value={'image'}

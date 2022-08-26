@@ -15,12 +15,12 @@ class CampaignDetail extends React.Component {
             <Aux>
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
                     <div className="col text-left">
-                        <h5>Compaign Detail </h5>
+                        <h5>Campaign Detail </h5>
                         <h6 className='f-12'>Approval 22 jan 2022</h6>
                     </div>
                     <div class="btn-group" >
                         <Button variant={'primary'}>Gallery</Button>
-                        <Button variant={'secondary'} className='ml-2'>Start Compaign</Button>
+                        <Button variant={'secondary'} className='ml-2'>Start Campaign</Button>
                     </div>
                 </Row>
 
@@ -30,7 +30,7 @@ class CampaignDetail extends React.Component {
                         <Card.Body className='p-1 m-0'>
                             <div className="row align-items-center  justify-content-between  pt-3 m-0">
                                 <div className="col text-left">
-                                    <h5>Compaign Title</h5>
+                                    <h5>Campaign Title</h5>
                                     <h6 className='f-12'>End Date 11 jan 2022</h6>
                                 </div>
                                 <div className="col text-right">
@@ -43,7 +43,7 @@ class CampaignDetail extends React.Component {
                             <div className="row align-items-center d-flex justify-content-between   m-0">
                                 <div className="flex-1">
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Type</span>
+                                        <span className="text-muted bold  f-12">Campaign Type</span>
                                         <h6>Paid</h6>
                                     </div>
                                 </div>
@@ -55,19 +55,19 @@ class CampaignDetail extends React.Component {
                                 </div>
                                 <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Category</span>
+                                        <span className="text-muted bold  f-12">Campaign Category</span>
                                         <h6>Beauty</h6>
                                     </div>
                                 </div>
                                 <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Interested pepoles	</span>
-                                        <h6>12 Infulancer Interested</h6>
+                                        <span className="text-muted bold  f-12">Interested peoples	</span>
+                                        <h6>12 Influencer Interested</h6>
                                     </div>
                                 </div>
                                 <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Need a</span>
+                                        <span className="text-muted bold  f-12">Campaign Need a</span>
                                         <h6>Instagram</h6>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ class CampaignDetail extends React.Component {
                                             </td>
                                             <td>
                                                 <Button variant={'secondary'} className='ml-2'>------</Button>
-                                                <Button variant={'primary'}>Deatils</Button>
+                                                <Button variant={'primary'}>Details</Button>
                                             </td>
                                         </tr>
                                         <tr className="unread">
@@ -118,7 +118,7 @@ class CampaignDetail extends React.Component {
                                             </td>
                                             <td>
                                                 <Button variant={'secondary'} className='ml-2'>------</Button>
-                                                <Button variant={'primary'}>Deatils</Button>
+                                                <Button variant={'primary'}>Details</Button>
                                             </td>
                                         </tr>
                                         <tr className="unread">
@@ -132,7 +132,7 @@ class CampaignDetail extends React.Component {
                                             </td>
                                             <td>
                                                 <Button variant={'secondary'} className='ml-2'>------</Button>
-                                                <Button variant={'primary'}>Deatils</Button>
+                                                <Button variant={'primary'}>Details</Button>
                                             </td>
                                         </tr>
                                         <tr className="unread">
@@ -146,7 +146,7 @@ class CampaignDetail extends React.Component {
                                             </td>
                                             <td>
                                                 <Button variant={'secondary'} className='ml-2'>------</Button>
-                                                <Button variant={'primary'}>Deatils</Button>
+                                                <Button variant={'primary'}>Details</Button>
                                             </td>
                                         </tr>
                                         <tr className="unread">
@@ -160,7 +160,7 @@ class CampaignDetail extends React.Component {
                                             </td>
                                             <td>
                                                 <Button variant={'secondary'} className='ml-2'>------</Button>
-                                                <Button variant={'primary'}>Deatils</Button>
+                                                <Button variant={'primary'}>Details</Button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -248,12 +248,12 @@ class CampaignDetail extends React.Component {
                                         <tr>
                                             <th>No</th>
                                             <th>Task</th>
-                                            <th>Asign</th>
-                                           
+                                            <th>Assign</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      
+
                                     </tbody>
                                 </Table>
                             </Card.Body>

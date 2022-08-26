@@ -18,7 +18,7 @@ class CampaignDetail extends React.Component {
             <Aux>
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
                     <div className="col text-left">
-                        <h5>Compaign Detail </h5>
+                        <h5>Campaign Title </h5>
                     </div>
                 </Row>
 
@@ -28,7 +28,7 @@ class CampaignDetail extends React.Component {
                         <Card.Body className='p-1 m-0'>
                             <div className="row align-items-center  justify-content-between  pt-3 m-0">
                                 <div className="col text-left">
-                                    <h5>Compaign Title</h5>
+                                    <h5>Campaign Title</h5>
                                     <h6 className='f-12'>Coming soon</h6>
                                 </div>
                                 <div className="col text-right p-0">
@@ -41,7 +41,7 @@ class CampaignDetail extends React.Component {
                             <div className="row align-items-center d-flex justify-content-between   m-0">
                                 <div className="flex-1">
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Type</span>
+                                        <span className="text-muted bold  f-12">Campaign Type</span>
                                         <h6>Paid</h6>
                                     </div>
                                 </div>
@@ -53,13 +53,13 @@ class CampaignDetail extends React.Component {
                                 </div>
                                 <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Category</span>
+                                        <span className="text-muted bold  f-12">Campaign Category</span>
                                         <h6>Beauty</h6>
                                     </div>
                                 </div>
                                 <div className="flex-1" style={{ borderLeft: ' 1px solid #eaeaea' }}>
                                     <div className="col text-left">
-                                        <span className="text-muted bold  f-12">Compaign Media</span>
+                                        <span className="text-muted bold  f-12">Campaign Media</span>
                                         <h6>Instagram</h6>
                                     </div>
                                 </div>
@@ -86,11 +86,6 @@ class CampaignDetail extends React.Component {
                             <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                         </Card>
                     </Col>
-                     <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
                     <Col md={4} xl={4} >
                         <Card  >
                             <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
@@ -126,7 +121,12 @@ class CampaignDetail extends React.Component {
                             <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                         </Card>
                     </Col>
-                    
+                    <Col md={4} xl={4} >
+                        <Card  >
+                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
+                        </Card>
+                    </Col>
+
                 </Row>
             </Aux>
         );
