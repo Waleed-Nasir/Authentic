@@ -89,7 +89,7 @@ class NavRight extends Component {
                             <Dropdown.Menu alignRight className="profile-notification">
                                 <div className="pro-head">
                                     <img src={Avatar1} className="img-radius" alt="User Profile" />
-                                    <span>{userDetails.influencer_name}</span>
+                                    <span>{userDetails?.influencer_name}</span>
                                     <a href={'/signin'} className="dud-logout" title="Logout">
                                         <i className="feather icon-log-out" />
                                     </a>
