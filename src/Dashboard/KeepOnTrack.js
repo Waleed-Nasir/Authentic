@@ -39,6 +39,7 @@ const KeepOnTrack = () => {
     const [state, setState] = useState([])
     const [cardState, setCardState] = useState({})
     const [O_type, setO_type] = useState('')
+    const [files, setfiles] = useState(null)
 
     let TOKEN = localStorage.getItem('token')
     let userDetails = localStorage.getItem('userDetails')
@@ -57,7 +58,7 @@ const KeepOnTrack = () => {
             headers: myHeaders,
             redirect: 'follow'
         };
-        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_tracks`, requestOptions)
+        fetch(`https://api.authentic-influencers.com/api/get_keep_on_tracks`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 setO_type(type)
@@ -90,7 +91,7 @@ const KeepOnTrack = () => {
             redirect: 'follow'
         };
 
-        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/add_keep_on_track_info", requestOptions)
+        fetch("https://api.authentic-influencers.com/api/add_keep_on_track_info", requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
@@ -100,6 +101,79 @@ const KeepOnTrack = () => {
             })
             .catch(error => console.log('error', error));
     }
+    const getPostImages = (e, files) => {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+
+        let data = []
+
+        for (let index = 0; index < files.length; index++) {
+
+            var formdata = new FormData();
+            formdata.append("file", files[index], files[index].name);
+            // formdata.append("type", "image");
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
+            data.push(requestOptions)
+        }
+
+        const promiseArray = data.map((header) => fetch("https://api.authentic-influencers.com/api/upload_media", header).then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                return { "image": response.detail }
+            }));
+
+        Promise.all(promiseArray)
+            .then((data) => {
+                SentImageUrlToAPi(e, data)
+            })
+            .catch((err) => {
+                console.log(err, 'err')
+            });
+
+
+    }
+    const handleFilesFirst = (e) => {
+        e.preventDefault()
+        getPostImages(e, files)
+    }
+
+
+    const SentImageUrlToAPi = (e, images) => {
+        e.preventDefault()
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "images": images,
+            "type": O_type,
+            "influencer_id": userDetails.influencer_id,
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        fetch("https://api.authentic-influencers.com/api/add_keep_on_track_image", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                toast(response.message)
+                handlePost(e)
+            })
+            .catch(error => console.log('error', error));
+    }
+
 
 
 
@@ -116,14 +190,14 @@ const KeepOnTrack = () => {
             redirect: 'follow'
         };
 
-        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_keep_on_track_info/${userDetails.influencer_id}`, requestOptions)
+        fetch(`https://api.authentic-influencers.com/api/get_keep_on_track_info/${userDetails.influencer_id}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
                 toast(response.message)
                 console.log(response.detail, 'response.detail')
-                let Instagram = response.detail.filter((item) => item?.keep_on_track_info?.type === 'instagram')
-                let Tiktok = response.detail.filter((item) => item?.keep_on_track_info?.type === 'tiktok')
+                let Instagram = response.detail?.filter((item) => item?.keep_on_track_info?.type === 'instagram')
+                let Tiktok = response.detail?.filter((item) => item?.keep_on_track_info?.type === 'tiktok')
                 setCardState({ Instagram, Tiktok })
                 handleDataVAL(O_type, state)
             })
@@ -174,9 +248,9 @@ const KeepOnTrack = () => {
                     <h4>Enter {types[O_type]} Profile Details</h4>
                 </Row>
 
-                <Form className='pt-3' onSubmit={handlePost}>
+                <Form className='pt-3' onSubmit={files?.length ? handleFilesFirst : handlePost}>
                     {state.map((item, index) => <Form.Group controlId="formBasicPassword">
-                        <Form.Control required onChange={(e) => { handleChangeDta(e, index, item.keep_on_track_id) }} type="text" value={item?.value} placeholder={item?.field} />
+                        {item?.field === 'Screenshots' ? <DropZoneUploader getFile={setfiles} /> : <Form.Control required onChange={(e) => { handleChangeDta(e, index, item.keep_on_track_id) }} type="text" value={item?.value} placeholder={item?.field} />}
                     </Form.Group>)}
                     {/* <DropZoneUploader /> */}
                     <Button type='submit' variant="primary" className='w-100 mt-3'>

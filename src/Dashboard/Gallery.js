@@ -44,29 +44,53 @@ const Gallery = () => {
             return false
         }
 
-        var formdata = new FormData();
-        formdata.append("file", File, File.name);
-        // formdata.append("type", "image");
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: formdata,
-            redirect: 'follow'
-        };
-
-        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/upload_media", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                const { response } = JSON.parse(result)
-                // toast('Image Uplaoded')
-                getPostImages(response.detail)
-            })
-            .catch(error => console.log('error', error));
+        getPostAllImages(e, File)
 
 
     }
 
+
+
+
+    const getPostAllImages = (e, files) => {
+
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+
+        let data = []
+
+        for (let index = 0; index < files.length; index++) {
+
+            var formdata = new FormData();
+            formdata.append("file", files[index], files[index].name);
+            // formdata.append("type", "image");
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
+            data.push(requestOptions)
+        }
+
+        const promiseArray = data.map((header) => fetch("https://api.authentic-influencers.com/api/upload_media", header).then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                return { image: response.detail }
+            }));
+
+        Promise.all(promiseArray)
+            .then((data) => {
+                getPostImages(data)
+            })
+            .catch((err) => {
+                console.log(err, 'err')
+            });
+
+
+    }
 
     const getPostImages = (path) => {
 
@@ -77,7 +101,7 @@ const Gallery = () => {
 
         var raw = JSON.stringify({
             "type": MediaType, // image or video
-            "path": path,
+            "images": path,
             "influencer_id": userDetails.influencer_id
         });
 
@@ -87,11 +111,11 @@ const Gallery = () => {
             body: raw,
             redirect: 'follow'
         };
-        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/add_gallery_info", requestOptions)
+        fetch("https://api.authentic-influencers.com/api/add_gallery_info", requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
-                toast('Image Uploaded')
+                toast(response.message)
                 setOpen(false)
                 getImages()
             })
@@ -112,11 +136,38 @@ const Gallery = () => {
             redirect: 'follow'
         };
 
-        fetch(`http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/get_gallery_info/${userDetails.influencer_id}`, requestOptions)
+        fetch(`https://api.authentic-influencers.com/api/get_gallery_info/${userDetails.influencer_id}`, requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
                 setImageList(response.detail)
+            })
+            .catch(error => console.log('error', error));
+    }
+
+
+    const onPressDelete = (gallery_id) => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+        var raw = JSON.stringify({
+            "gallery_id": gallery_id,
+            "influencer_id": userDetails.influencer_id
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.authentic-influencers.com/api/delete_gallery_info", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                toast(response.message)
+                getImages()
             })
             .catch(error => console.log('error', error));
     }
@@ -133,18 +184,7 @@ const Gallery = () => {
             </Row>
             <Row className='bg-white pt-4 pr-2 pl-2' >
                 {imageList?.map((item) => {
-                    return (item?.type === 'image' ? <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'cover', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
-                        </Card>
-                    </Col> : <Col md={4} xl={4} >
-                        <Card  >
-                            {/* <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" /> */}
-                            <div class="embed-responsive embed-responsive-1by1">
-                                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'cover', background: 'black' }}></iframe>
-                            </div>
-                        </Card>
-                    </Col>)
+                    return <HandleView item={item} onPressDelete={() => onPressDelete(item.gallery_id)} />
                 })}
 
             </Row >
@@ -215,5 +255,33 @@ const Gallery = () => {
         </Aux>
     );
 }
+
+
+
+
+const HandleView = ({ item, onPressDelete }) => {
+
+    return (item?.type === 'image' ? <Col md={4} xl={4} >
+        <Card  >
+            <i
+                onClick={onPressDelete}
+                className='feather icon-trash    bg-l-pink text-c-green f-20 p-3 mb-4 rounded' style={{
+                    position: 'absolute',
+                    right: ' 10px',
+                    top: ' 10px',
+                    cursor: 'pointer',
+                }} />
+            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
+        </Card>
+    </Col> : <Col md={4} xl={4} >
+        <Card  >
+            {/* <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" /> */}
+            <div class="embed-responsive embed-responsive-1by1">
+                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'contain', background: 'black' }}></iframe>
+            </div>
+        </Card>
+    </Col>)
+}
+
 
 export default Gallery;

@@ -1,0 +1,12 @@
+
+.delete{
+    color: red;
+    display: none;
+}
+.ImageDelete:hover .delete {
+   display:block ;
+   height: 1000;
+}
+.ImageDelete{
+    width: 100px;
+}

@@ -55,7 +55,7 @@ const SignUp = () => {
             redirect: 'follow'
         };
 
-        fetch("http://authenticinfluencersbackend-env.eba-auctmm2z.eu-west-2.elasticbeanstalk.com/api/register_influencer",requestOptions)
+        fetch("https://api.authentic-influencers.com/api/register_influencer",requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response, status, error } = JSON.parse(result)
