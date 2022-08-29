@@ -27,7 +27,7 @@ export default function DropZoneUploader({ getFile = () => { } }) {
             getFile(acceptedFiles)
             setUpload(acceptedFiles)
         } else {
-            getFile(file)
+            getFile(acceptedFiles)
             setUpload([file])
         }
 

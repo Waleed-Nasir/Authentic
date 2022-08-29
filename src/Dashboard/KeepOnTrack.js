@@ -104,11 +104,11 @@ const KeepOnTrack = () => {
             .then(response => response.text())
             .then(result => {
                 const { response } = JSON.parse(result)
+                setOpenUploadImage(false)
+                GetImages()
                 toast(response.message)
                 setOpen(false)
                 getRC()
-                setOpenUploadImage(false)
-                GetImages()
             })
             .catch(error => console.log('error', error));
     }
