@@ -35,18 +35,20 @@ const types = {
 }
 const KeepOnTrack = () => {
     const [open, setOpen] = React.useState(false);
+    const [openUploadImage, setOpenUploadImage] = React.useState(false);
     const [isAllow, setAllow] = React.useState(false);
     const [state, setState] = useState([])
     const [cardState, setCardState] = useState({})
     const [O_type, setO_type] = useState('')
     const [files, setfiles] = useState(null)
-
+    const [uploadedImages, setUploaded] = useState({})
     let TOKEN = localStorage.getItem('token')
     let userDetails = localStorage.getItem('userDetails')
     userDetails = JSON.parse(userDetails)
 
     useEffect(() => {
         getRC()
+        GetImages()
     }, [])
 
     const handleOpen = (type) => {
@@ -70,6 +72,13 @@ const KeepOnTrack = () => {
                 handleDataVAL(type, NewSte)
             })
             .catch(error => console.log('error', error));
+    }
+
+
+
+    const handleOpenUpload = (type) => {
+        setO_type(type)
+        setOpenUploadImage(true)
     }
 
 
@@ -98,6 +107,8 @@ const KeepOnTrack = () => {
                 toast(response.message)
                 setOpen(false)
                 getRC()
+                setOpenUploadImage(false)
+                GetImages()
             })
             .catch(error => console.log('error', error));
     }
@@ -170,6 +181,7 @@ const KeepOnTrack = () => {
                 const { response } = JSON.parse(result)
                 toast(response.message)
                 handlePost(e)
+                setfiles(null)
             })
             .catch(error => console.log('error', error));
     }
@@ -205,6 +217,35 @@ const KeepOnTrack = () => {
     }
 
 
+    const GetImages = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${TOKEN}`);
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch(`https://api.authentic-influencers.com/api/get_keep_on_track_images/${userDetails.influencer_id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                const { response } = JSON.parse(result)
+                let data = { instagram: [], tiktok: [] }
+                response.detail.map((item) => {
+                    if (item.type === 'instagram') {
+                        data.instagram.push(item)
+                    } else {
+                        data.tiktok.push(item)
+                    }
+                })
+                setUploaded(data)
+            }
+            )
+            .catch(error => console.log('error', error));
+    }
+
+
     const handleDataVAL = (O_type, state) => {
         setAllow(false)
         var data = {}
@@ -222,6 +263,7 @@ const KeepOnTrack = () => {
         setState(newState)
     }
 
+    console.log(uploadedImages, 'uploadedImages')
 
     return (
         <Aux>
@@ -230,12 +272,12 @@ const KeepOnTrack = () => {
 
             </Row>
             <Row className='align-self-center'>
-                {cardState?.Instagram ? <KeepCard data={cardState?.Instagram} type={'Instagram'} onClick={() => handleOpen('instagram')} /> : <Col md={6} xl={6} >
+                {cardState?.Instagram ? <KeepCard data={cardState?.Instagram} type={'Instagram'}  onClickUpload={() => handleOpenUpload('instagram')} images={uploadedImages['instagram']} onClick={() => handleOpen('instagram')} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
                         <div> <Button variant='primary' onClick={() => handleOpen('instagram')}  >Enter your Instagram Insights</Button></div>
                     </Card>
                 </Col>}
-                {cardState?.Tiktok ? <KeepCard data={cardState?.Tiktok} type={'Tiktok'} onClick={() => handleOpen('tiktok')} /> : <Col md={6} xl={6} >
+                {cardState?.Tiktok ? <KeepCard data={cardState?.Tiktok} type={'Tiktok'} onClick={() => handleOpen('tiktok')}   onClickUpload={() => handleOpenUpload('tiktok')} images={uploadedImages['tiktok']} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
                         <div> <Button variant='primary' onClick={() => handleOpen('tiktok')}  >Enter your Tiktok Insights</Button></div>
                     </Card>
@@ -250,8 +292,22 @@ const KeepOnTrack = () => {
 
                 <Form className='pt-3' onSubmit={files?.length ? handleFilesFirst : handlePost}>
                     {state.map((item, index) => <Form.Group controlId="formBasicPassword">
-                        {item?.field === 'Screenshots' ? <DropZoneUploader getFile={setfiles} /> : <Form.Control required onChange={(e) => { handleChangeDta(e, index, item.keep_on_track_id) }} type="text" value={item?.value} placeholder={item?.field} />}
+                        <Form.Control required onChange={(e) => { handleChangeDta(e, index, item.keep_on_track_id) }} type="text" value={item?.value} placeholder={item?.field} />
                     </Form.Group>)}
+                    {/* <DropZoneUploader getFile={setfiles} /> */}
+                    {/* <DropZoneUploader /> */}
+                    <Button type='submit' variant="primary" className='w-100 mt-3'>
+                        Submit
+                    </Button>
+                </Form>
+            </MODAL>
+            <MODAL isOpen={openUploadImage} handleModal={setOpenUploadImage}>
+                <Row className='pt-0 mt-0 justify-content-center pb-3' >
+                    <h4>Upload {types[O_type]} Images</h4>
+                </Row>
+
+                <Form className='pt-3' onSubmit={files?.length ? handleFilesFirst : handlePost}>
+                    <DropZoneUploader getFile={setfiles} />
                     {/* <DropZoneUploader /> */}
                     <Button type='submit' variant="primary" className='w-100 mt-3'>
                         Submit

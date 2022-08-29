@@ -101,7 +101,7 @@ const Gallery = () => {
 
         var raw = JSON.stringify({
             "type": MediaType, // image or video
-            "images": path,
+            "images": [{ "image": path }],
             "influencer_id": userDetails.influencer_id
         });
 
@@ -156,7 +156,7 @@ const Gallery = () => {
         });
 
         var requestOptions = {
-            method: 'POST',
+            method: 'DELETE',
             headers: myHeaders,
             body: raw,
             redirect: 'follow'
@@ -271,7 +271,7 @@ const HandleView = ({ item, onPressDelete }) => {
                     top: ' 10px',
                     cursor: 'pointer',
                 }} />
-            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
+            <img style={{ height: 290, objectFit: 'contain' }} class="img-fluid rounded" src={item.path} alt="activity-user" />
         </Card>
     </Col> : <Col md={4} xl={4} >
         <Card  >

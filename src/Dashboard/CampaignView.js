@@ -83,47 +83,7 @@ class CampaignDetail extends React.Component {
                 <Row className='bg-white pt-4 pr-2 pl-2' >
                     <Col md={4} xl={4} >
                         <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
-                        </Card>
-                    </Col>
-                    <Col md={4} xl={4} >
-                        <Card  >
-                            <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
+                            <img style={{ height: 290, objectFit: 'contain' }} class="img-fluid rounded" src="https://www.creatisimo.net/wp-content/uploads/2021/11/coming-soon-pages-cover.jpg" alt="activity-user" />
                         </Card>
                     </Col>
 
