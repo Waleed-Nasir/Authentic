@@ -276,8 +276,18 @@ const HandleView = ({ item, onPressDelete }) => {
     </Col> : <Col md={4} xl={4} >
         <Card  >
             {/* <img style={{ height: 290, objectFit: 'contain', background: 'black' }} class="img-fluid rounded" src={item.path} alt="activity-user" /> */}
+            <i
+                onClick={onPressDelete}
+                className='feather icon-trash    bg-l-pink text-c-green f-20 p-3 mb-4 rounded' style={{
+                    position: 'absolute',
+                    right: ' 10px',
+                    top: ' 10px',
+                    cursor: 'pointer',
+                    zIndex:1000
+                }} />
             <div class="embed-responsive embed-responsive-1by1">
-                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'contain', background: 'black' }}></iframe>
+                
+                <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'cover', }}></iframe>
             </div>
         </Card>
     </Col>)
