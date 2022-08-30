@@ -33,21 +33,20 @@ class CampignResult extends React.Component {
                     <div className="col text-left">
                         <h5>Campaign Result 01 </h5>
                         <h6 className="f-12" style={{ position: "absolute" }}>
-                            Instagram (Feed)
+                            Instagram Feed
                         </h6>
                     </div>
                     <div class="d-flex">
                         <DropdownButton
                             size={"sm"}
-                            title={"Instagram (Feed) 1"}
+                            title={"Instagram Feed"}
                             variant={"light"}
                             id={`dropdown-variants-light`}
                             key={"Instagram (Feed) 1"}
                         >
-                            <Dropdown.Item eventKey="1">Instagram (Feed) 1</Dropdown.Item>
-                            <Dropdown.Item eventKey="2">Instagram (Feed) 2</Dropdown.Item>
-                            <Dropdown.Item eventKey="3">Instagram (Feed) 3</Dropdown.Item>
-                            <Dropdown.Item eventKey="4">Instagram (Feed) 4</Dropdown.Item>
+                            <Dropdown.Item eventKey="1">Instagram Post</Dropdown.Item>
+                            <Dropdown.Item eventKey="2">Instagram Story</Dropdown.Item>
+                            <Dropdown.Item eventKey="3">Instagram Reel</Dropdown.Item>
                         </DropdownButton>
                         <Button size={"sm"} variant={"primary"} className="ml-3">
                             Edit

@@ -63,10 +63,10 @@ const SignUp = () => {
                 if (status) {
 
                     toast(response.message)
-                    localStorage.setItem('userDetails', JSON.stringify(response.detail.influencer))
-                    localStorage.setItem('token', response.detail.token)
+                    // localStorage.setItem('userDetails', JSON.stringify(response.detail.influencer))
+                    // localStorage.setItem('token', response.detail.token)
                     // localStorage.setItem('role', 'response.detail.type')
-                    history.push('/Home')
+                    history.push('/signin')
                 }
                 else {
                     toast.error(error.message)
