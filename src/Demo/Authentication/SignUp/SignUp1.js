@@ -87,7 +87,7 @@ const SignUp = () => {
                                 alt="Card image cap" />
                         </div>
                         <h3 className="mb-2">Welcome to admin</h3>
-                        <p className="mb-4 pb-4 text-muted">Entery your details to continue</p>
+                        <p className="mb-4 pb-4 text-muted">Enter your details to continue</p>
                         <div className="input-group mb-4">
                             <input type="text" onChange={(e) => setInfluencer_name(e.target.value)} value={influencer_name} className="form-control" placeholder="Influencer Name" />
                         </div>

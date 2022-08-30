@@ -10,7 +10,9 @@ const style = {
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
-    borderRadius:10
+    borderRadius:10,
+    maxHeight:'80%',
+    overflowX:'scroll'
 };
 
 const MODAL = ({ isOpen = false, children,handleModal }) => {

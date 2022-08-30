@@ -17,7 +17,7 @@ class Forgot extends React.Component {
                                     alt="Card image cap" />
                             </div>
                             <h3 className="mb-2">Forgot Password</h3>
-                            <p className="mb-4 pb-4 text-muted">Entery your Registered Email Address</p>
+                            <p className="mb-4 pb-4 text-muted">Enter your Registered Email Address</p>
                             <div className="input-group mb-3 mt-6">
                                 <input type="email" className="form-control" placeholder="Email" />
                             </div>

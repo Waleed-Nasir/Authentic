@@ -28,8 +28,7 @@ const Gallery = () => {
     userDetails = JSON.parse(userDetails)
     const fileUpload = (e) => {
         e.preventDefault()
-        setOpen(false);
-
+      
         if (MediaType === 'video') {
             getPostImages(Sources)
             return false
@@ -101,7 +100,7 @@ const Gallery = () => {
 
         var raw = JSON.stringify({
             "type": MediaType, // image or video
-            "images": [{ "image": path }],
+            "images": path,
             "influencer_id": userDetails.influencer_id
         });
 
