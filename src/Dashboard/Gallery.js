@@ -22,13 +22,15 @@ const Gallery = () => {
     const [imageList, setImageList] = React.useState([]);
     const [MediaType, setMediaType] = React.useState('image');
     const [Sources, setSources] = React.useState(null);
+    const [isLoading, setisLoading] = React.useState(false);
+
     const handleOpen = () => setOpen(true);
     let TOKEN = localStorage.getItem('token')
     let userDetails = localStorage.getItem('userDetails')
     userDetails = JSON.parse(userDetails)
     const fileUpload = (e) => {
         e.preventDefault()
-      
+        setisLoading(true)
         if (MediaType === 'video') {
             getPostImages(Sources)
             return false
@@ -116,9 +118,10 @@ const Gallery = () => {
                 const { response } = JSON.parse(result)
                 toast(response.message)
                 setOpen(false)
+                setisLoading(false)
                 getImages()
             })
-            .catch(error => console.log('error', error));
+            .catch(error => setisLoading(false));
     }
 
 
@@ -187,7 +190,7 @@ const Gallery = () => {
                 })}
 
             </Row >
-            <MODAL isOpen={open} handleModal={setOpen}>
+            <MODAL isOpen={open} handleModal={(e) => { setOpen(e); setisLoading(e) }}>
                 <Row className='pt-0 mt-0 justify-content-center pb-3' >
                     <h4>Add New Photo</h4>
                 </Row>
@@ -248,6 +251,8 @@ const Gallery = () => {
                     </Form.Group>}
                     <Button type={'submit'} variant="primary" className='w-100 m-0 mt-4'>
                         Submit
+                        {'  '}{isLoading ? <div class="spinner-border spinner-border-sm " role="status">
+                        </div> : null}
                     </Button>
                 </Form>
             </MODAL>
@@ -282,10 +287,10 @@ const HandleView = ({ item, onPressDelete }) => {
                     right: ' 10px',
                     top: ' 10px',
                     cursor: 'pointer',
-                    zIndex:1000
+                    zIndex: 1000
                 }} />
             <div class="embed-responsive embed-responsive-1by1">
-                
+
                 <iframe class="embed-responsive-item" src={item.path} style={{ height: 290, objectFit: 'cover', }}></iframe>
             </div>
         </Card>
