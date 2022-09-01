@@ -15,6 +15,7 @@ import image8 from '../assets/images/user/8.jpeg';
 import MODAL from './Modal';
 import DropZoneUploader from './DropZoneUploader';
 import { toast } from 'react-toastify';
+import LoaderBackdrop from './components/Loader';
 
 const Gallery = () => {
     const [open, setOpen] = React.useState(false);
@@ -190,7 +191,7 @@ const Gallery = () => {
                 })}
 
             </Row >
-            <MODAL isOpen={open} handleModal={(e) => { setOpen(e); setisLoading(e) }}>
+            <MODAL isOpen={open} handleModal={(e) => { setOpen(e); setisLoading(e) }} showLoader={isLoading}>
                 <Row className='pt-0 mt-0 justify-content-center pb-3' >
                     <h4>Add New Photo</h4>
                 </Row>
@@ -251,10 +252,9 @@ const Gallery = () => {
                     </Form.Group>}
                     <Button type={'submit'} variant="primary" className='w-100 m-0 mt-4'>
                         Submit
-                        {'  '}{isLoading ? <div class="spinner-border spinner-border-sm " role="status">
-                        </div> : null}
                     </Button>
                 </Form>
+           
             </MODAL>
         </Aux>
     );

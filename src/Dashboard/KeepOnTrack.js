@@ -45,7 +45,7 @@ const KeepOnTrack = () => {
     let TOKEN = localStorage.getItem('token')
     let userDetails = localStorage.getItem('userDetails')
     userDetails = JSON.parse(userDetails)
-
+    const [isLoading, setisLoading] = React.useState(false);
     useEffect(() => {
         getRC()
         GetImages()
@@ -84,6 +84,7 @@ const KeepOnTrack = () => {
 
     const handlePost = (e) => {
         e.preventDefault()
+        setisLoading(true)
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${TOKEN}`);
         myHeaders.append("Content-Type", "application/json");
@@ -109,8 +110,9 @@ const KeepOnTrack = () => {
                 toast(response.message)
                 setOpen(false)
                 getRC()
+                setisLoading(false)
             })
-            .catch(error => console.log('error', error));
+            .catch(error => { setisLoading(false); toast.error(error.message) });
     }
     const getPostImages = (e, files) => {
 
@@ -144,8 +146,10 @@ const KeepOnTrack = () => {
         Promise.all(promiseArray)
             .then((data) => {
                 SentImageUrlToAPi(e, data)
+                setisLoading(false)
             })
             .catch((err) => {
+                setisLoading(false)
                 console.log(err, 'err')
             });
 
@@ -154,6 +158,7 @@ const KeepOnTrack = () => {
     const handleFilesFirst = (e) => {
         e.preventDefault()
         getPostImages(e, files)
+        setisLoading(true)
     }
 
 
@@ -180,10 +185,11 @@ const KeepOnTrack = () => {
             .then(result => {
                 const { response } = JSON.parse(result)
                 toast(response.message)
-                handlePost(e)
                 setfiles(null)
+                setOpenUploadImage(false)
+                GetImages()
             })
-            .catch(error => console.log('error', error));
+            .catch(error => toast.error(error.message));
     }
 
 
@@ -272,12 +278,12 @@ const KeepOnTrack = () => {
 
             </Row>
             <Row className='align-self-center'>
-                {cardState?.Instagram ? <KeepCard data={cardState?.Instagram} type={'Instagram'}  onClickUpload={() => handleOpenUpload('instagram')} images={uploadedImages['instagram']} onClick={() => handleOpen('instagram')} /> : <Col md={6} xl={6} >
+                {cardState?.Instagram ? <KeepCard data={cardState?.Instagram} type={'Instagram'} onClickUpload={() => handleOpenUpload('instagram')} images={uploadedImages['instagram']} onClick={() => handleOpen('instagram')} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
                         <div> <Button variant='primary' onClick={() => handleOpen('instagram')}  >Enter your Instagram Insights</Button></div>
                     </Card>
                 </Col>}
-                {cardState?.Tiktok ? <KeepCard data={cardState?.Tiktok} type={'Tiktok'} onClick={() => handleOpen('tiktok')}   onClickUpload={() => handleOpenUpload('tiktok')} images={uploadedImages['tiktok']} /> : <Col md={6} xl={6} >
+                {cardState?.Tiktok ? <KeepCard data={cardState?.Tiktok} type={'Tiktok'} onClick={() => handleOpen('tiktok')} onClickUpload={() => handleOpenUpload('tiktok')} images={uploadedImages['tiktok']} /> : <Col md={6} xl={6} >
                     <Card style={{ height: 400 }} className='text-center justify-content-center'>
                         <div> <Button variant='primary' onClick={() => handleOpen('tiktok')}  >Enter your Tiktok Insights</Button></div>
                     </Card>
@@ -285,7 +291,7 @@ const KeepOnTrack = () => {
 
             </Row >
 
-            <MODAL isOpen={open} handleModal={setOpen}>
+            <MODAL isOpen={open} handleModal={setOpen} showLoader={isLoading}>
                 <Row className='pt-0 mt-0 justify-content-center pb-3' >
                     <h4>Enter {types[O_type]} Profile Details</h4>
                 </Row>
@@ -301,7 +307,7 @@ const KeepOnTrack = () => {
                     </Button>
                 </Form>
             </MODAL>
-            <MODAL isOpen={openUploadImage} handleModal={setOpenUploadImage}>
+            <MODAL isOpen={openUploadImage} handleModal={setOpenUploadImage} showLoader={isLoading}>
                 <Row className='pt-0 mt-0 justify-content-center pb-3' >
                     <h4>Upload {types[O_type]} Images</h4>
                 </Row>

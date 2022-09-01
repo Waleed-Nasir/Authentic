@@ -19,7 +19,7 @@ class CreateSurvey extends React.Component {
         return (
             <Aux>
                 <Row className='pt-4 pr-2 pl-2 pb-4 d-flex justify-content-between' >
-                    <h5>Create`s Survey</h5>
+                    <h5>Creators Survey</h5>
                 </Row>
                 <Row className=' p-4   d-flex justify-content-between bg-white' >
                     <h5>New Survey</h5>
@@ -212,11 +212,11 @@ class CreateSurvey extends React.Component {
                 <Row className='bg-white pt-0 orunded' >
                     <Col md={4} xl={4} >
                         <Card className='p-4 rounded' style={{backgroundColor:'#eeeeee'}}  >
-                            <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have comping up?</span>
+                            <span className='f-w-600 f-14 text-dark pb-5'>Which of the following life moments do you have coming up?</span>
                             <Form.Group>
                                 <div class="media align-item-center justify-contennt-between pt-0 pb-0 mb-0">
                                     <div class="media-body f-w-800 f-12">
-                                        Engaaged
+                                        Engaged
                                     </div>
                                     <Form.Check
                                         custom

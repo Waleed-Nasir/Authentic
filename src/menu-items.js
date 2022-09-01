@@ -31,8 +31,8 @@ export default {
                     icon: 'feather icon-home',
                 },
                 {
-                    id: 'Creator`s Survey',
-                    title: 'Creator`s Survey',
+                    id: 'Creators Survey',
+                    title: 'Creators Survey',
                     type: 'item',
                     url: '/CreateSurvey',
                     icon: 'feather icon-home',
@@ -327,8 +327,8 @@ export default {
                     icon: 'feather icon-home',
                 },
                 {
-                    id: 'Creator`s Survey',
-                    title: 'Creator`s Survey',
+                    id: 'Creators Survey',
+                    title: 'Creators Survey',
                     type: 'item',
                     url: '/CreateSurvey',
                     icon: 'feather icon-home',

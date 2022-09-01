@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Modal } from '@material-ui/core';
+import LoaderBackdrop from './components/Loader';
 
 const style = {
     position: 'absolute',
@@ -10,22 +11,25 @@ const style = {
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
-    borderRadius:10,
-    maxHeight:'80%',
-    overflowX:'scroll'
+    borderRadius: 10,
+    maxHeight: '80%',
+    overflowX: 'scroll'
 };
 
-const MODAL = ({ isOpen = false, children,handleModal }) => {
+const MODAL = ({ isOpen = false, children, handleModal, showLoader = false }) => {
     return (
         <Modal
             open={isOpen}
-            onClose={()=>handleModal(false)}
+            onClose={() => handleModal(false)}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
-                {children}
-            </Box>
+            <>
+                <LoaderBackdrop open={showLoader} />
+                <Box sx={style}>
+                    {children}
+                </Box>
+            </>
         </Modal>
     );
 }
