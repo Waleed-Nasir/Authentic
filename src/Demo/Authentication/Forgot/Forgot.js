@@ -16,26 +16,28 @@ const Forgot = () => {
         }
 
         var myHeaders = new Headers();
-        myHeaders.append("Accept", "application/json");
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
             "email": email,
         });
-
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: raw
+            body: raw,
+            redirect: 'follow'
         };
-        fetch("https://api.authentic-influencers.com/api/login_influencer", requestOptions)
+
+        fetch("https://api.authentic-influencers.com/api/forgot_password_influencer", requestOptions)
             .then(response => response.text())
             .then(result => {
                 const { response, status, error } = JSON.parse(result)
                 // console.log(result, 'result')
                 if (status) {
                     toast(response.message)
-                    history.goBack()
+                    setTimeout(() => {
+                        history.push('/signin')
+                    }, 600);
                 }
                 else {
                     toast.error(error.message)
