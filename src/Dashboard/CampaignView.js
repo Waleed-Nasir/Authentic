@@ -34,7 +34,6 @@ class CampaignDetail extends React.Component {
                                 <div className="col text-right p-0">
                                     <button type="button" class="btn btn-success bg-success" style={{ width: 100 }}>Accept</button>
                                 </div>
-
                             </div>
                         </Card.Body>
                         <Card.Body className='p-1 m-0'>
