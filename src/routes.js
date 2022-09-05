@@ -17,6 +17,7 @@ const CreateSurvey = React.lazy(() => import('./Dashboard/CreateSurvey'));
 const CampaignView = React.lazy(() => import('./Dashboard/CampaignView'));
 const CampignResult = React.lazy(() => import('./Dashboard/CampignResult'));
 const ChatScreen = React.lazy(() => import('./Dashboard/ChatScreen'));
+const Profile = React.lazy(() => import('./Dashboard/Profile'));
 
 
 const UIBasicButton = React.lazy(() => import('./Demo/UIElements/Basic/Button'));
@@ -66,6 +67,8 @@ const routes = [
     { path: '/CampaignView', exact: true, name: 'CampaignView', component: CampaignView },
     { path: '/CampignResult', exact: true, name: 'CampignResult', component: CampignResult },
     { path: '/Chat', exact: true, name: 'Chat', component: ChatScreen },
+    { path: '/Profile', exact: true, name: 'Profile', component: Profile },
+
 
 
 
